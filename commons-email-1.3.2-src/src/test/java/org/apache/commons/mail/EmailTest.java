@@ -177,6 +177,12 @@ public void testgetSocketConnectionTimeout()
 	email.setSocketConnectionTimeout(5);
 	assertEquals(5, email.getSocketConnectionTimeout());
 }
+@Test
+public void testSetFrom() throws Exception
+{
+	email.setFrom("a@bc.com");
+
+}
 
 
 }//closes EmailTest
