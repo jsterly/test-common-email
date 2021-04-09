@@ -83,4 +83,27 @@ public void testAddReplyTo() throws Exception
 	email.addReplyTo("a@bc.com", "Test name");
 	assertEquals(1, email.getReplyToAddresses().size());
 }
+
+
+//test buildmimemessage
+@Test(expected = EmailException.class)
+public void testBuildMimeMessage() throws Exception
+{
+	email.setHostName("HostTest");
+	email.setSmtpPort(1234);
+	email.setFrom("a@b.com");
+	email.addTo("c@d.com");
+	email.setSubject("test mail");
+	email.setCharset("ISO-8859-1");
+	email.setContent("test content", "text/plain");
+	email.addCc("test@abc.com");
+	email.addBcc("testname@testing.com");
+	email.addHeader("Test name", "abc");
+	email.addReplyTo("a@bc.com", "Test name");
+	//setPopBeforeSmtp is what makes the exception required
+	email.setPopBeforeSmtp(true,  "HostTest", "username", "password");
+	email.buildMimeMessage();
+
+
+}
 }//closes EmailTest
