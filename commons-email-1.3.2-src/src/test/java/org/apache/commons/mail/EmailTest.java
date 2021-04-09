@@ -106,4 +106,34 @@ public void testBuildMimeMessage() throws Exception
 
 
 }
+//tests gethostname with valid parameter
+@Test
+public void testGetHostName() throws Exception
+{
+	email.setHostName("TestHost");
+	String hostName = email.getHostName();
+
+	assertEquals("TestHost", hostName);
+
+
+}
+
+//test gethostname with null
+@Test
+public void testGetHostNameWithNull() throws Exception
+{
+	email.setHostName(null);
+	assertEquals(null, email.getHostName());
+}
+
+//tests gethost name with session
+@Test
+public void testGetHostNameWithSession() throws Exception
+{
+	Properties properties = new Properties();
+	Session session = Session.getDefaultInstance(properties, null);
+	properties.put(EmailConstants.MAIL_HOST, "hostTest");
+	email.setMailSession(session);
+	assertEquals("hostTest", email.getHostName());
+}
 }//closes EmailTest
