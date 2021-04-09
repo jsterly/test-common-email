@@ -49,5 +49,11 @@ public void testAddBcc() throws Exception
 	assertEquals(3, email.getBccAddresses().size());
 
 }
-
+//makes sure that addcc works
+@Test
+public void testAddCc() throws Exception
+{
+	email.addCc(TEST_EMAILS);
+	assertEquals(3, email.getCcAddresses().size());
+}
 }//closes EmailTest
