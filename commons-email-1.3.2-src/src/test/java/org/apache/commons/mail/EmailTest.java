@@ -136,4 +136,25 @@ public void testGetHostNameWithSession() throws Exception
 	email.setMailSession(session);
 	assertEquals("hostTest", email.getHostName());
 }
+
+//test getmail session, exception required
+@Test(expected = EmailException.class)
+public void testGetMailSession() throws Exception
+{
+
+	email.setSmtpPort(1234);
+	email.setFrom("a@b.com");
+	email.addTo("c@d.com");
+	email.setSubject("test mail");
+	email.setCharset("ISO-8859-1");
+	email.setContent("test content", "text/plain");
+	email.addCc("test@abc.com");
+	email.addBcc("testname@testing.com");
+	email.addHeader("Test name", "abc");
+	email.addReplyTo("a@bc.com", "Test name");
+	email.setSSLOnConnect(true);
+	email.getMailSession();
+
+}
+
 }//closes EmailTest
