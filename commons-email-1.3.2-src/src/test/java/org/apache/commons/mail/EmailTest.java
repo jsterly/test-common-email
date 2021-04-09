@@ -75,4 +75,12 @@ public void testAddHeaderWithNull() throws Exception
 
 }
 
+//test reply to
+@Test
+public void testAddReplyTo() throws Exception
+{
+
+	email.addReplyTo("a@bc.com", "Test name");
+	assertEquals(1, email.getReplyToAddresses().size());
+}
 }//closes EmailTest
