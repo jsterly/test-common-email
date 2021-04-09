@@ -41,6 +41,13 @@ public void setUpEmailTest() throws Exception{
 public void tearDownEmailTest() throws Exception{
 
 }//closes tearDownEmailTest
+//Makes sure that addBcc works
+@Test
+public void testAddBcc() throws Exception
+{
+	email.addBcc(TEST_EMAILS);
+	assertEquals(3, email.getBccAddresses().size());
 
+}
 
 }//closes EmailTest
