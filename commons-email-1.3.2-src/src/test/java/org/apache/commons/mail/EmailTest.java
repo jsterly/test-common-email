@@ -157,4 +157,19 @@ public void testGetMailSession() throws Exception
 
 }
 
+@Test
+public void testgetSentDateNull() throws Exception
+{
+	email.setSentDate(null);
+	email.getSentDate();
+}
+
+@Test
+public void testgetSentDate() throws Exception
+{
+	Date currentDate = new Date();
+	email.setSentDate(currentDate);
+	assertEquals(currentDate, email.getSentDate());
+}
+
 }//closes EmailTest
