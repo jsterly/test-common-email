@@ -56,4 +56,23 @@ public void testAddCc() throws Exception
 	email.addCc(TEST_EMAILS);
 	assertEquals(3, email.getCcAddresses().size());
 }
+// makes sure that addheader works as long as valid strings are in parameters
+@Test
+public void testAddHeader() throws Exception
+{
+	email.addHeader("TestName", "Test Value");
+	assertEquals(1, email.headers.size());
+
+
+}
+
+// test addheader if key is null
+@Test(expected = IllegalArgumentException.class)
+public void testAddHeaderWithNull() throws Exception
+{
+	email.addHeader(null, "Test Value");
+	assertEquals(0, email.headers.size());
+
+}
+
 }//closes EmailTest
