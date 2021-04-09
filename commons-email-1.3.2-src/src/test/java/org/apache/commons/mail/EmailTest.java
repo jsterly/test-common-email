@@ -171,5 +171,12 @@ public void testgetSentDate() throws Exception
 	email.setSentDate(currentDate);
 	assertEquals(currentDate, email.getSentDate());
 }
+@Test
+public void testgetSocketConnectionTimeout()
+{
+	email.setSocketConnectionTimeout(5);
+	assertEquals(5, email.getSocketConnectionTimeout());
+}
+
 
 }//closes EmailTest
